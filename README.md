@@ -1,37 +1,36 @@
-# Mecanismo de pesquisa de Filmes feito com HTML, CSS e JavaScript puro.
-### Feito com a motivação de praticar lógica de programação, e manipulação da DOM.
+<div align="center">
+
+# FilmSearch
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+</div>
 
 ---
 
-## Sobre
+A client-side movie search bar. No backend, no dependencies — just DOM manipulation and a `formatString` function doing more work than it looks like.
 
-Este projeto é uma barra de pesquisa customizada para filtrar uma lista de filmes diretamente na página, sem necessidade de backend.  
-Além de buscar pelo título e descrição, ele também aceita apelidos (sinônimos) para facilitar a busca, tipo **"Dirty Dancing"** ou **"Ritmo Quente"**.
-
----
-
-## Funcionalidades
-
-- Pesquisa instantânea conforme o usuário digita.
-- Suporte a múltiplos apelidos para cada filme.
-- Feedback visual com mensagem "Nenhum resultado encontrado" quando nada bate.
-- Estilo limpo e responsivo, com scrollbar personalizada.
-- Compatível com qualquer navegador moderno.
+The interesting detail: search is normalized before comparison. Accents are stripped, case is ignored, whitespace is trimmed. So `"Dirty Dancing"`, `"dirty dancing"`, and `"dírty dáncing"` all hit the same result. That one function is the whole engine.
 
 ---
 
-## Tecnologias
+## What's under the hood
 
-- HTML5  
-- CSS3 (com estilização simples e scrollbar customizada)  
-- JavaScript ES6+
+- Live filtering on every keystroke via `input` event
+- `normalize('NFD')` + regex strips accents before comparison — search works regardless of how the user types
+- Items are shown/hidden with `display` toggling, no re-renders
+- "No results" message appears only when every item is hidden
+- Custom scrollbar styled for both Webkit and Firefox
+- Single JS file, zero dependencies
 
 ---
 
-## Como usar
-
-Clone o repositório:
+## Running locally
 
 ```bash
-git clone https://github.com/ScatmanVit/mecanismo-pequisa.git
+git clone https://github.com/ScatmanVit/FilmSearch.git
 ```
+
+Open `src/html.html` in your browser or use Live Server in VSCode.
