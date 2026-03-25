@@ -30,7 +30,7 @@ The interesting detail: search is normalized before comparison. Accents are stri
 ## Running locally
 
 ```bash
-git clone https://github.com/ScatmanVit/FilmSearch.git
+git clone https://github.com/vitorbaradel/FilmSearch.git
 ```
 
 Open `src/html.html` in your browser or use Live Server in VSCode.
